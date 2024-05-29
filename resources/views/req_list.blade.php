@@ -28,7 +28,7 @@
                         <td>{{ $value->cpf }}</td>
                         <td>{{ $value->it }}</td>
                         <td>{{ $value->tele }}</td>
-                        <td>{{ $value->landline }}</td>
+                        <td>{{ $value->dc }}</td>
                         <td>{{ $value->sim }}</td>
                         <td><a href="form"><button class="btn btn-primary">View</button></a></td>
                     </tr>

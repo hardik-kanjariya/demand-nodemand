@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\DataController;
+use App\Http\Controllers\AdminController;
 
 
 /*
@@ -22,6 +23,7 @@ Route::get('/', [AuthController::class, 'login'])->name('login');
 Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/showdata', [DataController::class, 'showdata'])->name('showdata');
 Route::get('/form', [DataController::class, 'showform'])->name('showform');
+Route::post('/form/{cpf}', [AdminController::class, 'approve'])->name('approve');
 Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
