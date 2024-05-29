@@ -1,0 +1,23 @@
+@if(!empty($data) && $data->count())
+                @foreach($data as $key => $value)
+                    <tr @if($value->call_status=="Close")
+                        style="background:#e8fce4;"
+                        @else
+                        style="background:#d9edf7;"
+                        @endif
+                      >
+                        <td>{{ $value->complaint_type }}</td>
+                        <td>{{ $value->complaint_category}}</td>
+                        <td>{{ $value->location}}</td>
+                        <td>{{ $value->created_at}}</td>
+                        <td>
+                          @if($value->complaint_type=="RWA")
+                            <a href="{{ route('rwa_feedback',['id'=>$value->id])}}" class="btn btn-primary" role="button" aria-pressed="true"><i class="fas fa-fw fa-eye pr-4"></i>View</a>
+                          @else
+                            <a href="{{ route('complaint_info',['id'=>$value->id])}}" class="btn btn-primary" role="button" aria-pressed="true"><i class="fas fa-fw fa-eye pr-4"></i>View</a>
+                          @endif
+                          
+                        </td>
+                    </tr>
+                @endforeach
+            @else
