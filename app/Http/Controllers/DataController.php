@@ -40,23 +40,23 @@ class DataController extends Controller
 
         if(Auth::user()){
             if(Auth::user()->hasrole('admin')){
-                return view('form1');
+                return view('admin_form');
             }
 
             elseif(Auth::user()->hasrole('it')){
-                return view('');
+                return view('it_form');
             }
 
             elseif(Auth::user()->hasrole('tele')){
-                return view('');
+                return view('tele_form');
             }
 
             elseif(Auth::user()->hasrole('dc')){
-                return view('');
+                return view('dc_form');
             }
 
             elseif(Auth::user()->hasrole('sim')){
-                return view('');
+                return view('mob_form');
             }
         
         }
