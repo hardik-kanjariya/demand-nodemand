@@ -21,6 +21,7 @@ use App\Http\Controllers\DataController;
 Route::get('/', [AuthController::class, 'login'])->name('login');
 Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/showdata', [DataController::class, 'showdata'])->name('showdata');
+Route::get('/form', [DataController::class, 'showform'])->name('showform');
 Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 

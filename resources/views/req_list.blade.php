@@ -30,7 +30,7 @@
                         <td>{{ $value->tele }}</td>
                         <td>{{ $value->landline }}</td>
                         <td>{{ $value->sim }}</td>
-                        <td><a href="route{{ 'validate' }}"></a><button class="btn btn-primary">View</button></td>
+                        <td><a href="form"><button class="btn btn-primary">View</button></a></td>
                     </tr>
                 @endforeach
             @else

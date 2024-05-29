@@ -35,20 +35,34 @@ class DataController extends Controller
             return redirect()->route('login');
             // ->withErrors(['login' => 'Login Details are Invalid']);
         }
-        // if (Auth::check()) {
-        //     $user = Auth::user();
+    }
+    public function showform(){
+
+        if(Auth::user()){
+            if(Auth::user()->hasrole('admin')){
+                return view('form1');
+            }
+
+            elseif(Auth::user()->hasrole('it')){
+                return view('');
+            }
+
+            elseif(Auth::user()->hasrole('tele')){
+                return view('');
+            }
+
+            elseif(Auth::user()->hasrole('dc')){
+                return view('');
+            }
+
+            elseif(Auth::user()->hasrole('sim')){
+                return view('');
+            }
         
-        //     if ($user->hasRole('admin')) {
-
-        //         $data = status::all(); 
-        //         return view('req_list', ['data' => $data]);
-        //     } else {
-        //         $data = Details::all();
-        //         return view('list', ['data' => $data]);
-        //     }
-        // } else {
-
-        //     return redirect()->route('login');
-        // }
+        }
+        else{
+            return redirect()->route('login');
+        }
     }
 }
+

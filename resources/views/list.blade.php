@@ -29,7 +29,7 @@
                         <td>{{ $value->iom_ref_date }}</td>
                         <td>{{ $value->section }}</td>
                         <td>{{ $value->designation }}</td>
-                        <td><a href="route{{ 'validate' }}"></a><button class="btn btn-primary">View</button></td>
+                        <td><a href="route{{ 'showform' }}"></a><button class="btn btn-primary">View</button></td>
                     </tr>
                 @endforeach
             @else
