@@ -90,7 +90,7 @@ body{
                      <p class="text-black fs-1 text-center" style=" font-weight: 600; ">Hello, ONGCian</p>
                      <p class="text-black fs-3 text-center" >Welcome To ONGC DPR Mehsana</p>
                 </div>
-                <form name="login_form" method="POST" action="{{route('do_login') }}">
+                <form name="login_form" method="POST" action="{{route('showdata') }}">
                 @csrf
                 <div class="form-label"><label for="exinput" class="text-black fs-3">Username </label></div>
                 <div class="input-group mb-3">

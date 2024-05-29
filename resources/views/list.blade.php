@@ -8,9 +8,7 @@
 @section('content')
 <div class="row p-3">
     <h4>Your Complaints List</h4>
-    @php
-        $data = []; // Assuming $data is passed to the view from the controller
-    @endphp
+
     <table class="table table-striped">
         <thead>
             <tr>
@@ -19,28 +17,19 @@
                 <th>IOM Ref. Date</th>
                 <th>Section</th>
                 <th>Designation</th>
-                <th>Action</th>
+                <th>View</th>
             </tr>
         </thead>
         <tbody>
             @if(!empty($data) && $data->count())
                 @foreach($data as $key => $value)
-                    <tr @if($value->call_status=="Close") style="background:#e8fce4;" @else style="background:#d9edf7;" @endif>
-                        <td>{{ $value->complaint_type }}</td>
-                        <td>{{ $value->complaint_category }}</td>
-                        <td>{{ $value->location }}</td>
-                        <td>{{ $value->created_at }}</td>
-                        <td>
-                            @if($value->complaint_type=="RWA")
-                                <a href="{{ route('rwa_feedback',['id'=>$value->id])}}" class="btn btn-primary" role="button" aria-pressed="true">
-                                    <i class="fas fa-fw fa-eye pr-4"></i>View
-                                </a>
-                            @else
-                                <a href="{{ route('complaint_info',['id'=>$value->id])}}" class="btn btn-primary" role="button" aria-pressed="true">
-                                    <i class="fas fa-fw fa-eye pr-4"></i>View
-                                </a>
-                            @endif
-                        </td>
+                    <tr style="background:#d9edf7;" >
+                        <td>{{ $value->iom_ref_no }}</td>
+                        <td>{{ $value->cpf }}</td>
+                        <td>{{ $value->iom_ref_date }}</td>
+                        <td>{{ $value->section }}</td>
+                        <td>{{ $value->designation }}</td>
+                        <td><a href="route{{ 'validate' }}"></a><button class="btn btn-primary">View</button></td>
                     </tr>
                 @endforeach
             @else
