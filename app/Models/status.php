@@ -14,7 +14,7 @@ use Illuminate\Database\Eloquent\Model;
 
 
 
-class Details extends Model
+class status extends Model
 {
     use HasFactory;
 

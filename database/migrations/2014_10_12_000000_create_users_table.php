@@ -3,6 +3,8 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\Log;
+
 
 return new class extends Migration
 {
@@ -14,9 +16,10 @@ return new class extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->string('username')->unique();
+            $table->id();
+            $table->string('username',11)->unique();
             $table->string('password');
-            $table->integer('id');        
+            $table->string('role');        
             $table->rememberToken();
             $table->timestamps();
         });

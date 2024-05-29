@@ -7,7 +7,7 @@
 
 @section('content')
 <div class="row p-3">
-    <h4>Your Complaints List</h4>
+    <h4>DND Request List</h4>
     <table class="table table-striped">
         <thead>
             <tr>

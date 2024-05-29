@@ -1,6 +1,7 @@
-username,psw,id
-user1,123,1
-user2,123,2
-user3,123,3
-user4,123,4
-user5,123,5
+username,psw,role
+user1,123,it
+user2,123,tele
+user3,123,dc
+user4,123,sim
+user5,123,admin
+user6,123,jiludon

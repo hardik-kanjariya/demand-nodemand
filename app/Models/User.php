@@ -8,29 +8,28 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Laratrust\Traits\LaratrustUserTrait;
-use Illuminate\Foundation\Auth\Access\Authorizable;
+use App\Models\Role; // Import the Role model
 
 class User extends Authenticatable
 {   
-
     use LaratrustUserTrait;
     use HasApiTokens, HasFactory, Notifiable;
 
     /**
      * The attributes that are mass assignable.
      *
-     * @var array<int, string>
+     * @var array
      */
     protected $fillable = [
-        'name',
-        'email',
+        'username',
         'password',
+        'role'
     ];
 
     /**
      * The attributes that should be hidden for serialization.
      *
-     * @var array<int, string>
+     * @var array
      */
     protected $hidden = [
         'password',
@@ -40,81 +39,67 @@ class User extends Authenticatable
     /**
      * The attributes that should be cast.
      *
-     * @var array<string, string>
+     * @var array
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
 
-
-    public static function create_user(){
-        echo "hello shree";
+    // Function to create a user
+    public static function create_user()
+    {
         $role_name = new Role();
         $role_name->name         = 'owner';
         $role_name->display_name = 'Project Owner'; // optional
         $role_name->description  = 'User is the owner of a given project'; // optional
         $role_name->save();
-         // $user=new User;
-         // $user->cpf=1;
-         // $user->password=bcrypt('12345678');
-         // $user->save();
-         //$user =App\Models\User::create_user()
+        
+        // You might want to create a user here if needed
     }
 
-    public static function update_user(){
-        $filename=public_path().'/data/user_data.csv';
+    // Function to update user data from a CSV file
+    public static function updateUser()
+    {
+        $filename = public_path('data/user_data.csv');
+
+        if (!file_exists($filename) || !is_readable($filename)) {
+            echo ("File not found or is not readable: $filename");
+            return;
+        }
+
         $file = fopen($filename, "r");
-        $data_arr = array(); // Read through the file and store the contents as an array
+        $dataArr = [];
         $i = 0;
-        //Read the contents of the uploaded file 
+
         while (($filedata = fgetcsv($file, 1000, ",")) !== FALSE) {
-        $num = count($filedata);
-        // echo $filedata;
-        // Skip first row (Remove below comment if you want to skip the first row)
-        if ($i == 0) {
-            $i++;
-            continue;
-            }
-            for ($c = 0; $c < $num; $c++) {
-                // echo $filedata[$c];
-                $data_arr[$i][] = $filedata[$c];
-            }
-            $i++;
+            if ($i++ == 0) continue; // Skip header row
+            $dataArr[] = $filedata;
         }
 
         fclose($file);
-        
-        foreach ($data_arr as $count => $value) {
+
+        foreach ($dataArr as $value) {
+            if (count($value) < 3) {
+
+                echo "Invalid data format in CSV: " . implode(',', count($value));
+                continue;
+            }
+
+            $user = User::firstOrCreate([
+                'username' => $value[0],
+                'password' => bcrypt($value[1]),
+                'role' => $value[2],
+            ]);
+
+            $roleName = $value[2];
             
-            $role_name = new Role();
-            $role_name->name         = $value[0];  
-            $role_name->display_name = $value[0];; // optional
-            $role_name->description  = 'User can access '.$value[0];; // optional
-            $role_name->save();
+            $role = Role::firstOrCreate(
+                ['name' => $roleName],
+                ['display_name' => $roleName, 'description' => 'User can access ' . $value[0]],
+            );
 
-            $user=new User();
-            $user->username=$value[0];
-            $user->password=bcrypt($value[1]);
-            $user->id=$value[2];
-            $user->save();
-            $user->attachRole($role_name);
-            echo "user ".$value[0]." added successfully\n";
-
+            $user->attachRole($role);
+            echo ("User with username {$user->username} added successfully");
         }
-       
     }
-
-
-    // $device = Device::find($id);
-    
-    // $device->device_name = $request->device_name;
-    // $device->user_id = $request->user_id;
-    // $device->password = $request->password;
-
-    // Device::where('id', 'FR 900')->first();
-      
-    
-
-
-
 }
