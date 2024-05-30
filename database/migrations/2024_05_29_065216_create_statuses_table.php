@@ -14,6 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('statuses', function (Blueprint $table) {
+            $table->id();
             $table->string('cpf');
             $table->string('iom_ref_no');
             $table->string('it')->default('Pending');
@@ -24,6 +25,7 @@ return new class extends Migration
             $table->string('dc_r');
             $table->string('sim')->default('Pending');
             $table->string('sim_r');
+            $table->timestamps();
         });
     }
 

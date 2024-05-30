@@ -10,26 +10,30 @@ use Illuminate\Support\Facades\Auth;
 class AdminController extends Controller
 {
     public function approve($cpf){
-        $user=Auth::user();
-        $status = status::where('cpf', $cpf)->first();
-        if($user->hasrole('it')){
-            $status->it="Approved";
-            return view('list');
+        $user = Auth::user();
+        $status = status::where('cpf', $cpf)->first(); // Assuming Status model is capitalized
+        // dd($status);
+        if(!$status) {
+            // Handle case where status is not found for the given CPF
+            return redirect()->back()->with('error', 'Status not found for the given CPF.');
         }
-
-            elseif($user->hasrole('tele')){
-                $status->tele="Approved";
-                return view('list');
-            }
-
-            elseif($user->hasrole('dc')){
-                $status->dc="Approved";
-                return view('list');
-            }
-
-            elseif($user->hasrole('sim')){
-                $status->sim="Approved";
-                return view('list');
-            }
+    
+        if($user->hasRole('it')){
+            $status->it = "Approved";
+        } elseif($user->hasRole('tele')){
+            $status->tele = "Approved";
+        } elseif($user->hasRole('dc')){
+            $status->dc = "Approved";
+        } elseif($user->hasRole('sim')){
+            $status->sim = "Approved";
+        } else {
+            // Handle case where user role is not recognized
+            return redirect()->back()->with('error', 'User role not recognized.');
+        }
+    
+        $status->save(); // Save the changes to the status object
+        // dd('hello');
+        return redirect()->route('showdata');
     }
+    
 }

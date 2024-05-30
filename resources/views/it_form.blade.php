@@ -23,7 +23,7 @@
 <body>
   <div class="container mt-5">
     <h1 class="text-center mb-4">IT Admin NOC Details Form</h1>
-    <form id="it_admin_form" action="" method="post"> @csrf
+    <form id="it_admin_form" action="{{ route('approve',['cpf' => $data->cpf]) }}" method="post"> @csrf
       <div class="row">
         <!-- First column -->
         <div class="col-md-6">
@@ -88,7 +88,7 @@
       <!-- Approve and Back buttons -->
       <div class="row">
         <div class="col-md-12 text-center">
-          <button type="submit" class="btn btn-approve btn-lg mr-2" name="action" value="approve">Approve</button>
+          <button type="submit" class="btn btn-primary btn-lg mr-2" name="action" value="approve">Approve</button>
           <button type="button" class="btn btn-secondary btn-lg" onclick="window.history.back()">Back</button>
         </div>
       </div>

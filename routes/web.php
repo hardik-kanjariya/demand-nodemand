@@ -21,9 +21,11 @@ use App\Http\Controllers\AdminController;
 
 Route::get('/', [AuthController::class, 'login'])->name('login');
 Route::get('/login', [AuthController::class, 'login'])->name('login');
-Route::post('/showdata', [DataController::class, 'showdata'])->name('showdata');
-Route::get('/form', [DataController::class, 'showform'])->name('showform');
-Route::post('/form/{cpf}', [AdminController::class, 'approve'])->name('approve');
+Route::get('/showdata', [DataController::class, 'showdata'])->name('showdata');
+Route::post('/showdata', [DataController::class, 'showdata'])->name('showdata.post');
+Route::get('/form/{cpf}', [DataController::class, 'showform'])->name('showform');
+Route::post('/form/{cpf}', [DataController::class, 'showform'])->name('showform');
+Route::post('/approve/{cpf}', [AdminController::class, 'approve'])->name('approve');
 Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
