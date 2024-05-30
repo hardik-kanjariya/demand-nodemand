@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Details;
 use App\Models\status; 
+use App\Models\Datacard; 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Validator;
@@ -97,38 +98,26 @@ class DataController extends Controller
         $dataArr = [];
         $i = 0;
 
-        while (($filedata = fgetcsv($file, 1000, ",")) !== FALSE) {
+        while (($filedata = fgetcsv($file,10000, ",")) !== FALSE) {
             if ($i++ == 0) continue; // Skip header row
             $dataArr[] = $filedata;
         }
 
         fclose($file);
 
-
-
+        $i=1;
+        Datacard::truncate();
         foreach ($dataArr as $value) {
-            if (count($value) < 7) {
-
-                echo "Invalid data format in CSV: " . implode(',', count($value));
-                continue;
-            }
-
-            $dc = Datacard::firstOrCreate([
-                'username' => $value[0],
-                'password' => bcrypt($value[1]),
-                'role' => $value[2],
+             $dc = Datacard::Create([
+                'id' => $i,
+                'cpf' => $value[2],
+                'provider' => $value[0],
+                'number' => $value[3],
             ]);
-
-            $roleName = $value[2];
-            
-            $role = Role::firstOrCreate(
-                ['name' => $roleName],
-                ['display_name' => $roleName, 'description' => 'User can access ' . $value[0]],
-            );
-
-            $user->attachRole($role);
-            echo ("User with username {$user->username} added successfully");
+            $i++;
         }
+        return view('upload');
     }
 }
+
 

@@ -25,7 +25,7 @@ Route::get('/showdata', [DataController::class, 'showdata'])->name('showdata');
 Route::post('/showdata', [DataController::class, 'showdata'])->name('showdata.post');
 Route::get('/form/{cpf}', [DataController::class, 'showform'])->name('showform');
 Route::post('/form/{cpf}', [DataController::class, 'showform'])->name('showform');
-Route::post('/upload', [DataController::class, 'upload'])->name('upload');
+Route::get('/upload', [DataController::class, 'upload'])->name('upload');
 Route::post('/uploadfile', [DataController::class, 'uploadfile'])->name('upload.post');
 Route::post('/approve/{cpf}', [AdminController::class, 'approve'])->name('approve');
 Route::get('/newreq', [AdminController::class, 'newreq'])->name('newreq');
