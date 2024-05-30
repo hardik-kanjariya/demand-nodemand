@@ -11,7 +11,7 @@
     <div class="jumbotron p-2 text-center text-white bg-primary">
         <div class="row">
           <div class="col-xl-2 col-lg-2 pt-2">
-            <img src="ongc_logo.png" alt="" style="width: 35%;">
+            <img src="{{ asset('ongc_logo.png') }}" alt="" style="width: 35%;">
           </div>
 
           <div class="col">
@@ -20,7 +20,7 @@
           </div>
 
           <div class="col-xl-2 col-lg-2 p-4">
-            <a href="./logout.php" class="btn btn-danger" role="button">Log Out</a>
+            <a href="{{ url('/logout') }}" class="btn btn-danger" role="button">Log Out</a>
           </div>
         </div>
     </div>
@@ -28,7 +28,8 @@
     <div class="container mt-5">
         <div class="row">
             <div class="col-md-6">
-                <form id="upload_form" action="" method="post" enctype="multipart/form-data">
+                <form id="upload_form" action="{{ route('upload.post') }}" method="post" enctype="multipart/form-data">
+                    @csrf
                     <div class="form-group">
                         <label class="font-weight-bold">Upload Details</label>
                         <input class="form-control-file" type="file" name="datacard_file" id="datacard_file" accept=".csv">

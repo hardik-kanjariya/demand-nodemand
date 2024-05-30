@@ -52,17 +52,17 @@ class DataController extends Controller
 
         if(Auth::user()){
             if(Auth::user()->hasrole('admin')){
-                $data= status::where('cpf',$cpf);
+                $data= status::where('cpf',$cpf)->first();
                 return view('admin_form',['data' => $data]);
             }
 
             elseif(Auth::user()->hasrole('it')){
-                $data=Details::where('cpf',$cpf);
+                $data=Details::where('cpf',$cpf)->first();
                 return view('it_form',['data'=>$data]);
             }
 
             elseif(Auth::user()->hasrole('tele')){
-                $data=Details::where('cpf',$cpf);
+                $data=Details::where('cpf',$cpf)->first();
                 return view('tele_form',['data'=>$data]);      
             }
 
@@ -72,13 +72,62 @@ class DataController extends Controller
             }
 
             elseif(Auth::user()->hasrole('sim')){
-                $data=Details::where('cpf',$cpf);
+                $data=Details::where('cpf',$cpf)->first();
                 return view('mob_form',['data'=>$data]);
             }
         
         }
         else{
             return redirect()->route('login');
+        }
+    }
+    public function upload(){
+        return view('upload');
+    }
+    public function uploadfile(Request $request){
+
+        $filename=$request->file('datacard_file');
+
+        if (!file_exists($filename) || !is_readable($filename)) {
+            echo ("File not found or is not readable: $filename");
+            return;
+        }
+
+        $file = fopen($filename, "r");
+        $dataArr = [];
+        $i = 0;
+
+        while (($filedata = fgetcsv($file, 1000, ",")) !== FALSE) {
+            if ($i++ == 0) continue; // Skip header row
+            $dataArr[] = $filedata;
+        }
+
+        fclose($file);
+
+
+
+        foreach ($dataArr as $value) {
+            if (count($value) < 7) {
+
+                echo "Invalid data format in CSV: " . implode(',', count($value));
+                continue;
+            }
+
+            $dc = Datacard::firstOrCreate([
+                'username' => $value[0],
+                'password' => bcrypt($value[1]),
+                'role' => $value[2],
+            ]);
+
+            $roleName = $value[2];
+            
+            $role = Role::firstOrCreate(
+                ['name' => $roleName],
+                ['display_name' => $roleName, 'description' => 'User can access ' . $value[0]],
+            );
+
+            $user->attachRole($role);
+            echo ("User with username {$user->username} added successfully");
         }
     }
 }
