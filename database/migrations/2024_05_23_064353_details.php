@@ -14,10 +14,10 @@ return new class extends Migration
     public function up()
     {
         Schema::create('details', function (Blueprint $table) {
-            $table->string('id')->unique();
+            $table->id();
             $table->integer('cpf');        
             $table->string('iom_ref_no');
-            $table->string('iom_ref_date');
+            $table->date('iom_ref_date')->default(date("Y-m-d"));
             $table->string('name');
             $table->string('section');
             $table->string('designation');
@@ -37,7 +37,7 @@ return new class extends Migration
             $table->string('l_srno');
             $table->string('remark');
             $table->rememberToken();
-            // $table->timestamps();
+            $table->timestamps();
         });
     }
 

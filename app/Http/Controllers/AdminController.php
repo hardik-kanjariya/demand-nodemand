@@ -35,5 +35,14 @@ class AdminController extends Controller
         // dd('hello');
         return redirect()->route('showdata');
     }
+
+
+    public function newreq(Request $request){
+        $req=new Details();
+        $req->cpf= $request->input('cpfNumber');
+        $req->iom_ref_no=$request->input('iomnumber');
+        $req->save();
+        return redirect()->route('showdata');
+    }
     
 }

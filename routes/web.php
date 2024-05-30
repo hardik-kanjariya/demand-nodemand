@@ -26,6 +26,7 @@ Route::post('/showdata', [DataController::class, 'showdata'])->name('showdata.po
 Route::get('/form/{cpf}', [DataController::class, 'showform'])->name('showform');
 Route::post('/form/{cpf}', [DataController::class, 'showform'])->name('showform');
 Route::post('/approve/{cpf}', [AdminController::class, 'approve'])->name('approve');
+Route::get('/newreq', [AdminController::class, 'newreq'])->name('newreq');
 Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 

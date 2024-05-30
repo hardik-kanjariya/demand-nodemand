@@ -7,6 +7,21 @@
 
 @section('content')
 <div class="row p-3">
+    <div class="col-md-4">
+        <label for="username">CPF NUMBER :</label>
+        <input type="text" id="cpfNumber" name="cpfNumber" class="form-control" placeholder="Enter CPF Number">
+    </div>
+    <div class="col-md-4">
+        <label for="password">IOM REFERENCE NUMBER :</label>
+        <input type="text" id="iomnumber" name="iomnumber" class="form-control" placeholder="Enter IOM Reference Number">
+    </div>
+    <div class="col-md-4">
+        <label>&nbsp;</label><br>
+        <a href="newreq"><button type="button" class="btn btn-primary">REQUEST</button></a>
+    </div>
+</div>
+
+<div class="row p-3">
     <h4>DND Request List</h4>
     <table class="table table-striped">
         <thead>
@@ -23,7 +38,7 @@
         <tbody>
             @if(!empty($data) && $data->count())
                 @foreach($data as $key => $value)
-                    <tr style="background:#e8fce4;" >
+                    <tr>
                         <td>{{ $value->iom_ref_no }}</td>
                         <td>{{ $value->cpf }}</td>
                         <td>{{ $value->it }}</td>
