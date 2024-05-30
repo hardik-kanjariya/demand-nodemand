@@ -23,7 +23,7 @@
 <body>
   <div class="container mt-5">
     <h1 class="text-center mb-4">IT Admin NOC Details Form</h1>
-    <form id="it_admin_form" action="{{ route('approve',['cpf' => $data->cpf]) }}" method="post"> @csrf
+    <form id="it_admin_form" action="{{ route('approve',['cpf' => $data-> cpf]) }}" method="post"> @csrf
       <div class="row">
         <!-- First column -->
         <div class="col-md-6">

@@ -59,30 +59,9 @@
 @endsection
 
 @section('adminlte_css')
-    <link rel="stylesheet" href="{{ asset('path/to/your/custom/css/file.css') }}">
+ 
 @endsection
 
-@section('adminlte_js')
-    <script src="{{ asset('path/to/your/custom/js/file.js') }}"></script>
-    <script>
-        document.getElementsByTagName('html')[0].style.width = "100%";
-        @if(Session::has('message'))
-            var Toast = Swal.mixin({
-                toast: true,
-                position: 'top-end',
-                showConfirmButton: false,
-                timer: 2000,
-                timerProgressBar: true,
-                onOpen: function(toast) {
-                    toast.addEventListener('mouseenter', Swal.stopTimer);
-                    toast.addEventListener('mouseleave', Swal.resumeTimer);
-                }
-            });
+@section('adminlte_js')  
 
-            Toast.fire({
-                icon: 'success',
-                title: '{{ Session::get('message') }}'
-            });
-        @endif
-    </script>
 @endsection
