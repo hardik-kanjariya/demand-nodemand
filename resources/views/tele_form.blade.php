@@ -29,27 +29,27 @@
         <div class="col-md-6">
           <div class="form-group">
             <label for="iomReference">IOM Reference No.</label>
-            <input type="text" class="form-control" id="iomReference" name="iomReference" readonly value="Fetched from dataset">
+            <input type="text" class="form-control" id="iomReference" name="iomReference" readonly value="{{$data->iom_ref_no}}">
           </div>
 
           <div class="form-group">
             <label for="cpfNumber">CPF Number</label>
-            <input type="text" class="form-control" id="cpfNumber" name="cpfNumber" readonly value="Fetched from dataset">
+            <input type="text" class="form-control" id="cpfNumber" name="cpfNumber" readonly value="{{$data->cpf}}">
           </div>
           <div class="form-group">
             <label for="designation">Designation</label>
-            <input type="text" class="form-control" id="designation" name="designation" readonly value="Fetched from dataset">
+            <input type="text" class="form-control" id="designation" name="designation" readonly value="{{$data->designation}}">
           </div>
         </div>
         <!-- Second column -->
         <div class="col-md-6">
           <div class="form-group">
             <label for="section">Section</label>
-            <input type="text" class="form-control" id="section" name="section" readonly value="Fetched from dataset">
+            <input type="text" class="form-control" id="section" name="section" readonly value="{{$data->section}}">
           </div>
           <div class="form-group">
             <label for="name">Name</label>
-            <input type="text" class="form-control" id="name" name="name" readonly value="Fetched from dataset">
+            <input type="text" class="form-control" id="name" name="name" readonly value="{{$data->name}}">
           </div>
         </div>
       </div>
@@ -58,21 +58,21 @@
         <div class="col-md-6">
           <div class="form-group">
             <label for="epabxOffice">EPABX Office</label>
-            <input type="text" class="form-control" id="epabxOffice" name="epabxOffice" readonly value="Fetched from dataset">
+            <input type="text" class="form-control" id="epabxOffice" name="epabxOffice" readonly value="{{$data->epabx_o}}">
           </div>
           <div class="form-group">
             <label for="epabxR">EPABX (R)</label>
-            <input type="text" class="form-control" id="epabxR" name="epabxR" readonly value="Fetched from dataset">
+            <input type="text" class="form-control" id="epabxR" name="epabxR" readonly value="{{$data->epabx_r}}">
           </div>
         </div>
         <div class="col-md-6">
           <div class="form-group">
             <label for="directLandlineOffice">Direct/Landline Office</label>
-            <input type="text" class="form-control" id="directLandlineOffice" name="directLandlineOffice" readonly value="Fetched from dataset">
+            <input type="text" class="form-control" id="directLandlineOffice" name="directLandlineOffice" readonly value="{{$data->landline_o	}}">
           </div>
           <div class="form-group">
             <label for="directLandlineR">Direct/Landline (R)</label>
-            <input type="text" class="form-control" id="directLandlineR" name="directLandlineR" readonly value="Fetched from dataset">
+            <input type="text" class="form-control" id="directLandlineR" name="directLandlineR" readonly value="{{$data->landline_r	}}">
           </div>
         </div>
       </div>

@@ -29,27 +29,27 @@
         <div class="col-md-6">
           <div class="form-group">
             <label for="iomReference">IOM Reference No.</label>
-            <input type="text" class="form-control" id="iomReference" name="iomReference" readonly value="Fetched from dataset">
+            <input type="text" class="form-control" id="iomReference" name="iomReference" readonly value="{{$data->iom_ref_no}}">
           </div>
 
           <div class="form-group">
             <label for="cpfNumber">CPF Number</label>
-            <input type="text" class="form-control" id="cpfNumber" name="cpfNumber" readonly value="Fetched from dataset">
+            <input type="text" class="form-control" id="cpfNumber" name="cpfNumber" readonly value="{{$data->cpf}}">
           </div>
           <div class="form-group">
             <label for="designation">Designation</label>
-            <input type="text" class="form-control" id="designation" name="designation" readonly value="Fetched from dataset">
+            <input type="text" class="form-control" id="designation" name="designation" readonly value="{{$data->designation}}">
           </div>
         </div>
         <!-- Second column -->
         <div class="col-md-6">
           <div class="form-group">
             <label for="section">Section</label>
-            <input type="text" class="form-control" id="section" name="section" readonly value="Fetched from dataset">
+            <input type="text" class="form-control" id="section" name="section" readonly value="{{$data->section}}">
           </div>
           <div class="form-group">
             <label for="name">Name</label>
-            <input type="text" class="form-control" id="name" name="name" readonly value="Fetched from dataset">
+            <input type="text" class="form-control" id="name" name="name" readonly value="{{$data->name}}">
           </div>
         </div>
       </div>
@@ -58,17 +58,17 @@
         <div class="col-md-6">
           <div class="form-group">
             <label for="laptopMake">Laptop's Make</label>
-            <input type="text" class="form-control" id="laptopMake" name="laptopMake" readonly value="Fetched from dataset">
+            <input type="text" class="form-control" id="laptopMake" name="laptopMake" readonly value="{{$data->l_make}}">
           </div>
           <div class="form-group">
             <label for="laptopModel">Laptop's Model</label>
-            <input type="text" class="form-control" id="laptopModel" name="laptopModel" readonly value="Fetched from dataset">
+            <input type="text" class="form-control" id="laptopModel" name="laptopModel" readonly valu="{{$data->l_model}}">
           </div>
         </div>
         <div class="col-md-6">
           <div class="form-group">
             <label for="laptopSrNo">Serial Number of Laptop</label>
-            <input type="text" class="form-control" id="laptopSrNo" name="laptopSrNo" readonly value="Fetched from dataset">
+            <input type="text" class="form-control" id="laptopSrNo" name="laptopSrNo" readonly value="{{$data->l_srno}}">
           </div>
         </div>
       </div>
