@@ -46,12 +46,22 @@ return [
     */
 
     'logo' => '<b>ONGC</b>',
-    'logo_img' => 'astute_logo.png',
+    'logo_img' => 'cmp_img/logo.png',
     'logo_img_class' => 'brand-image img-circle elevation-5',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
-    'logo_img_alt' => 'AdminLTE',
+    'logo_img_alt' => 'ONGC',
 
+    'preloader' => [
+        'enabled' => true,
+        'img' => [
+            'path' => 'cmp_img/logo.png',  // Path to your custom logo
+            'alt' => 'ONGC Preloader Image',
+            'effect' => 'animation__shake',
+            'width' => 60,
+            'height' => 60,
+        ],
+    ],
     /*
     |--------------------------------------------------------------------------
     | User Menu
@@ -227,16 +237,36 @@ return [
     'menu' => [
         // Navbar items:
         [
-            'type'         => 'navbar-search',
-            'text'         => 'search',
-            'topnav_right' => true,
+            'text' => 'Logout',
+            'url'  => 'logout', // Adjust the URL as needed
+            'icon' => 'fas fa-sign-out-alt', // Adjust the icon as needed
+            'topnav_right' => true, // This will place the Logout option in the top navbar
+        ],
+        
+        // Sidebar items:
+        
+        // ['header' => 'Dashboard'],
+        [
+            'text' => 'Dashboard',
+            'url' => '/dash', 
+            'icon' => 'fas fa-home',
         ],
         [
-            'type'         => 'fullscreen-widget',
-            'topnav_right' => true,
+            'text' => 'Issue List', 
+            'url'  => '/dashlist',  
+            'icon' => 'fas fa-fw fa-list', 
+           
         ],
-
-        // Sidebar items:
+        // [
+        //     'text' => 'Issue Form', 
+        //     'url'  => '/dashlist/dashform',       
+        // ],
+        [
+            'text' => 'Contact List', 
+            'url' => '/allcontacts',  
+            'icon' => 'fas fa-address-book', 
+        ],
+        
         // [
         //     'type' => 'sidebar-menu-search',
         //     'text' => 'search',
@@ -253,7 +283,8 @@ return [
         //     'label'       => 4,
         //     'label_color' => 'success',
         // ],
-        ['header' => 'account_settings'],
+        
+        
          [
             'text'=> 'Manage User',
             'url' => 'user-manage',
@@ -281,7 +312,7 @@ return [
             'url'  => 'user-dashboard',
             'icon' => 'fas fa-fw fa-tachometer-alt',
             'permission' => 'simple-userpermisssion',
-        ],       
+        ],      
         [
             'text' => 'Graphs',
             'url'  => 'graph',
