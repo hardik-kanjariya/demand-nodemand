@@ -32,7 +32,12 @@ class DataController extends Controller
             if (Auth::user()->hasRole('admin')) {
                 $data = status::all();
                 return view('req_list', ['data' => $data]);
-            } else {
+            }
+            elseif(Auth::user()->hasrole('dc') || Auth::user()->hasrole('mob') ){
+                $data = Details::all();
+               return view('file_list', ['data' => $data]);
+       }
+        else {
                 $data = Details::all();
                 return view('list', ['data' => $data]);
             }
@@ -41,7 +46,13 @@ class DataController extends Controller
         if (Auth::user()->hasRole('admin')) {
             $data = status::all();
             return view('req_list', ['data' => $data]);
-        } else {
+        } 
+        elseif(Auth::user()->hasrole('dc') || Auth::user()->hasrole('mob') ){
+            $data = Details::all();
+           return view('file_list', ['data' => $data]);
+        }
+
+        else {
             $data = Details::all();
             return view('list', ['data' => $data]);
         }
@@ -116,7 +127,7 @@ class DataController extends Controller
             ]);
             $i++;
         }
-        return view('upload');
+        return redirect('showdata');
     }
 }
 
