@@ -66,6 +66,10 @@ class AdminController extends Controller
         $req->l_srno = $demo[12];
         $req->remark= $demo[13];
         $req->save();
+        $st = new status();
+        $st->cpf = $cpf;
+        $st->iom_ref_no = $request->input('iomnumber');
+        $st->save();
         return redirect()->route('showdata');
     }
     

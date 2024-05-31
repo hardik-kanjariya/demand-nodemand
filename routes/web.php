@@ -32,6 +32,8 @@ Route::post('/approve/{cpf}', [AdminController::class, 'approve'])->name('approv
 Route::post('/newreq', [AdminController::class, 'newreq'])->name('newreq');
 
 Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
+Route::get('/logout', [LogoutController::class, 'logout'])->name('logout');
+
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 //------------admin related routes---------------------//

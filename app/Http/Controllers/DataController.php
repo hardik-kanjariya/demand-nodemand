@@ -94,7 +94,7 @@ class DataController extends Controller
         }
     }
     public function upload(){
-        return view('upload');
+        return view('document');
     }
     public function uploadfile(Request $request){
 
