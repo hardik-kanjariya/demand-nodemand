@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('datacards', function (Blueprint $table) {
             $table->id();
             $table->string('cpf');
+            $table->bigInteger('number');
             $table->string('provider');
-            $table->string('number');
             $table->timestamps();
         });
     }

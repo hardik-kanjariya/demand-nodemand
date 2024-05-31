@@ -18,13 +18,9 @@ return new class extends Migration
             $table->string('cpf');
             $table->string('iom_ref_no');
             $table->string('it')->default('Pending');
-            $table->string('it_r');
             $table->string('tele')->default('Pending');
-            $table->string('tele_r');
             $table->string('dc')->default('Pending');
-            $table->string('dc_r');
-            $table->string('sim')->default('Pending');
-            $table->string('sim_r');
+            $table->string('mob')->default('Pending');
             $table->timestamps();
         });
     }

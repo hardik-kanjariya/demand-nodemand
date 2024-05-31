@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('mobiles', function (Blueprint $table) {
             $table->id();
             $table->string('cpf');
-            $table->string('mobile_no');
+            $table->bigInteger('mobile_no');
             $table->string('service_pro');
             $table->timestamps();
         });

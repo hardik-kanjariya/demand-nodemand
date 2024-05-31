@@ -83,7 +83,7 @@ class DataController extends Controller
                 return view('dc_form',['data'=>$data]);      
             }
 
-            elseif(Auth::user()->hasrole('sim')){
+            elseif(Auth::user()->hasrole('mob')){
                 $data=Details::where('cpf',$cpf)->first();
                 return view('mob_form',['data'=>$data]);
             }

@@ -6,7 +6,7 @@
 @stop
 
 @section('content')
-<form class="row p-3" action="{{ route('newreq') }}" method="post">
+<form class="row p-3" action="{{ route('newreq') }}" method="post">@csrf
     <div class="col-md-4">
         <label for="cpfNumber">CPF NUMBER :</label>
         <input type="text" id="cpfNumber" name="cpfNumber" class="form-control" placeholder="Enter CPF Number">

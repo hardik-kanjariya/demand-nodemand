@@ -28,9 +28,9 @@ return new class extends Migration
             $table->string('epabx_r');
             $table->string('landline_o');
             $table->string('landline_r');
-            $table->integer('sim_no');
+            $table->bigInteger('mob_no');
             $table->string('sim_provide');
-            $table->integer('dc_no');
+            $table->bigInteger('dc_no');
             $table->string('dc_provider');
             $table->string('l_make');
             $table->string('l_model');
