@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Details;
 use App\Models\status; 
+use App\Models\Mobile;
+use App\Models\Datacard; 
 use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
@@ -38,9 +40,30 @@ class AdminController extends Controller
 
 
     public function newreq(Request $request){
-        $req=new Details();
-        $req->cpf= $request->input('cpfNumber');
-        $req->iom_ref_no=$request->input('iomnumber');
+        $demo=['name','section','designation','reason','transfer to','relleving date','epabx_o','epabx_r','landline_o','landmine_r','l make','l_model','l_srno'];
+        $cpf = $request->input('cpfNumber');
+        $dc = Datacard::where('cpf',$cpf)->first();
+        $mob = Mobile::where('cpf',$cpf)->first();
+        $req = new Details();
+        $req->cpf = $cpf;
+        $req->iom_ref_no = $request->input('iomnumber');
+        $req->name = $demo[0];
+        $req->section = $demo[1];
+        $req->designation = $demo[2];
+        $req->reason = $demo[3];
+        $req->transfer_to = $demo[4];
+        $req->relleving_date = $demo[5];
+        $req->epabx_o = $demo[6];
+        $req->epabx_r = $demo[7];
+        $req->landline_o = $demo[8];
+        $req->landline_r = $demo[9];
+        $req->sim_no = $mob->mobile_no;
+        $req->sim_provide = $mob->service_pro;
+        $req->dc_no = $dc->number;
+        $req->dc_provider = $dc->provider;
+        $req->l_make = $demo[10];
+        $req->l_model = $demo[11];
+        $req->l_srno = $demo[12];
         $req->save();
         return redirect()->route('showdata');
     }

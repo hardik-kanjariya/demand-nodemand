@@ -29,6 +29,8 @@ Route::get('/upload', [DataController::class, 'upload'])->name('upload');
 Route::post('/uploadfile', [DataController::class, 'uploadfile'])->name('upload.post');
 Route::post('/approve/{cpf}', [AdminController::class, 'approve'])->name('approve');
 Route::get('/newreq', [AdminController::class, 'newreq'])->name('newreq');
+Route::post('/newreq', [AdminController::class, 'newreq'])->name('newreq');
+
 Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 

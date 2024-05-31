@@ -6,20 +6,20 @@
 @stop
 
 @section('content')
-<div class="row p-3">
+<form class="row p-3" action="{{ route('newreq') }}" method="post">
     <div class="col-md-4">
-        <label for="username">CPF NUMBER :</label>
+        <label for="cpfNumber">CPF NUMBER :</label>
         <input type="text" id="cpfNumber" name="cpfNumber" class="form-control" placeholder="Enter CPF Number">
     </div>
     <div class="col-md-4">
-        <label for="password">IOM REFERENCE NUMBER :</label>
+        <label for="iomnumber">IOM REFERENCE NUMBER :</label>
         <input type="text" id="iomnumber" name="iomnumber" class="form-control" placeholder="Enter IOM Reference Number">
     </div>
     <div class="col-md-4">
         <label>&nbsp;</label><br>
-        <a href="newreq"><button type="button" class="btn btn-primary">REQUEST</button></a>
+        <button type="submit" class="btn btn-primary">REQUEST</button>
     </div>
-</div>
+</form>
 
 <div class="row p-3">
     <h4>DND Request List</h4>
