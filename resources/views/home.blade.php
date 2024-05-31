@@ -1,4 +1,4 @@
-@extends('adminlte::page', ['sidebar' => true])
+@extends('adminlte::page', ['iFrameEnabled' => true])
 @section('title', 'Dashboard')
 
 @section('content_header')

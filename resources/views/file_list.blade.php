@@ -7,43 +7,20 @@
 
 @section('content')
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Import</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-</head>
+
 <body>
-    
-    <div class="jumbotron p-2 text-center text-white bg-primary">
-        <div class="row">
-          <div class="col-xl-2 col-lg-2 pt-2">
-            <img src="{{ asset('ongc_logo.png') }}" alt="" style="width: 35%;">
-          </div>
 
-          <div class="col">
-            <h1>Welcome to IT Asset Management Portal</h1>
-            <p>ONGC Mehsana</p>
-          </div>
-
-          <div class="col-xl-2 col-lg-2 p-4">
-            <a href="{{ url('/logout') }}" class="btn btn-danger" role="button">Log Out</a>
-          </div>
-        </div>
-    </div>
     
-    <div class="container mt-5">
+    <div class="container pt-4">
         <div class="row">
-            <div class="col-md-6">
-                <form id="upload_form" action="{{ route('upload.post') }}" method="post" enctype="multipart/form-data">
+            <div class="col-md-5">
+                <form id="upload_form" action="{{ route('upload.post') }}" method="post" enctype="multipart/form-data" class="d-flex">
                     @csrf
-                    <div class="form-group">
-                        <label class="font-weight-bold">Upload Details</label>
+                    <div class="form-group d-flex">
+                        <label class="font-weight-bold" style="width:200px;">Upload Details</label>
                         <input class="form-control-file" type="file" name="datacard_file" id="datacard_file" accept=".csv">
                     </div>
-                    <button class="btn btn-primary" type="submit" name="submit">Upload</button>
+                    <button class="btn btn-primary" style="height:40px;" type="submit" name="submit">Upload</button>
                 </form>
             </div>
         </div>

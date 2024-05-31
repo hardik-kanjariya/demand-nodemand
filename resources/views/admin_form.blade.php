@@ -1,28 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('adminlte::page', ['iFrameEnabled' => true])
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form</title>
-    <!-- Include Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <style>
-        .form-group.row.d-flex.justify-content-end {
-            justify-content: space-between;
-            margin-top: 0;
-        }
+@section('title', 'Import')
 
-        .btn-lg {
-            padding: 1rem 1.5rem;
-            font-size: 1.20rem;
-            /* border:2px solid red; */
-        }
-    </style>
-</head>
+@section('content_header')
+@stop
 
+@section('content')
 <body>
-
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <div class="jumbotron p-2 text-center text-white bg-primary">
         <div class="row">
             <div class="col-xl-2 col-lg-2 pt-2">
@@ -214,3 +200,4 @@
     </div>
 </body>
 </html>
+@endsection

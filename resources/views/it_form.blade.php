@@ -1,26 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>IT Admin NOC Details Form</title>
-  <!-- Bootstrap CSS -->
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-  <style>
-    .btn-lg {
-      padding: 10px 20px;
-      font-size: 1.25rem;
-    }
-    .btn-approve {
-      background-color: #007bff;
-      color: white;
-    }
-    .btn-approve:hover {
-      background-color: #0056b3;
-    }
-  </style>
-</head>
+@extends('adminlte::page', ['iFrameEnabled' => true])
+
+@section('title', 'Import')
+
+@section('content_header')
+@stop
+
+@section('content')
 <body>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <div class="container mt-5">
     <h1 class="text-center mb-4">IT Admin NOC Details Form</h1>
     <form id="it_admin_form" action="{{ route('approve',['cpf' => $data-> cpf]) }}" method="post"> @csrf
@@ -98,3 +85,4 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+@endsection
