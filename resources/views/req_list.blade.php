@@ -45,11 +45,11 @@
     <table class="table table-striped">
         <thead>
             <tr>
-                <th>IOM Ref. Number</th>
                 <th>CPF Number</th>
+                <th>IOM Ref. Number</th>
                 <th>IT Status</th>
                 <th>Telephone Status</th>
-                <th>Landline Status</th>
+                <th>Mobile Status</th>
                 <th>Datacard Status</th>
                 <th>View</th>
             </tr>
@@ -58,13 +58,38 @@
             @if(!empty($data) && $data->count())
                 @foreach($data as $key => $value)
                     <tr>
-                        <td>{{ $value->iom_ref_no }}</td>
                         <td>{{ $value->cpf }}</td>
-                        <td>{{ $value->it }}</td>
-                        <td>{{ $value->tele }}</td>
-                        <td>{{ $value->dc }}</td>
-                        <td>{{ $value->sim }}</td>
-                        <td><a href="form"><button class="btn btn-primary">View</button></a></td>
+                        <td>{{ $value->iom_ref_no }}</td>
+                        <td>
+                            @if($value->it != 'Pending')
+                            <i class="fas fa-check"></i>
+                            @endif
+                            @if($value->it != 'Approved')
+                                <i class="far fa-clock"></i>
+                            @endif
+                        </td>
+                        <td>@if($value->tele != 'Pending')
+                            <i class="fas fa-check"></i>
+                            @endif
+                            @if($value->tele != 'Approved')
+                                <i class="far fa-clock"></i>
+                            @endif
+                        </td>
+                        <td>@if($value->mob != 'Pending')
+                            <i class="fas fa-check"></i>
+                            @endif
+                            @if($value->mob != 'Approved')
+                                <i class="far fa-clock"></i>
+                            @endif
+                        </td>
+                        <td>@if($value->dc != 'Pending')
+                            <i class="fas fa-check"></i>
+                            @endif
+                            @if($value->dc != 'Approved')
+                                <i class="fas fa-check badge bg-warning"> Pending</i>
+                            @endif
+                        </td>
+                        <td><a href="/form/{{$value->cpf}}"><button class="btn btn-primary" type="submit">View</button></a></td>
                     </tr>
                 @endforeach
             @else

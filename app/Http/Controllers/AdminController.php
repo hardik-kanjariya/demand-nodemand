@@ -50,9 +50,9 @@ class AdminController extends Controller
         $req->name = $demo[0];
         $req->section = $demo[1];
         $req->designation = $demo[2];
-        $req->reason = $demo[3];
-        $req->transfer_to = $demo[4];
-        $req->relleving_date = $demo[5];
+        $req->reason = $request->input('reason');
+        $req->transfer_to = $request->input('transferTo');
+        $req->relleving_date = $request->input('relievingDate');
         $req->epabx_o = $demo[6];
         $req->epabx_r = $demo[7];
         $req->landline_o = $demo[8];
