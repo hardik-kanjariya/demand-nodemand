@@ -149,10 +149,6 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <!-- <label for="remarks_datacard_no" class="col-sm-2 col-form-label">Remarks</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="remarks_datacard_no" name="remarks_datacard_no" readonly value="Fetched from dataset">
-                        </div> -->
                         <label for="datacard_service_provider" class="col-sm-2 col-form-label">Datacard Service Provider</label>
                         <div class="col-sm-4">
                             <input type="text" class="form-control" id="datacard_service_provider" name="datacard_service_provider" readonly value="{{$data->dc_provide}}">
@@ -188,7 +184,7 @@
                     </div>
                     <div class="form-group row d-flex justify-content-end m-2">
                         <div class="col d-flex">
-                            <button type="submit" name="submit" id="submit" class="btn-lg btn-primary">Save</button>
+                            <button type="submit" name="submit" id="submit" class="btn-lg btn-primary">Download</button>
                         </div>
                         <div class="col d-flex flex-row-reverse">
                             <a href="./dnd.php" class="btn-lg btn-primary" role="button">Back</a>

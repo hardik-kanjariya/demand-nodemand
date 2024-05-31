@@ -7,15 +7,34 @@
 
 @section('content')
 <form class="row p-3" action="{{ route('newreq') }}" method="post">@csrf
-    <div class="col-md-4">
+    <div class="col-md-2">
         <label for="cpfNumber">CPF NUMBER :</label>
         <input type="text" id="cpfNumber" name="cpfNumber" class="form-control" placeholder="Enter CPF Number">
     </div>
-    <div class="col-md-4">
+    <div class="col-md-2">
         <label for="iomnumber">IOM REFERENCE NUMBER :</label>
         <input type="text" id="iomnumber" name="iomnumber" class="form-control" placeholder="Enter IOM Reference Number">
     </div>
-    <div class="col-md-4">
+    <div class="col-md-2">
+        <label for="iomnumber">REASON:</label>
+        <select class="form-control" id="reason" name="reason" required>
+            <option value="Transfer" selected>Transfer</option>
+            <option value="Superannuation">Superannuation</option>
+            <option value="Demise">Demise</option>
+            <option value="Dismissal">Dismissal</option>
+            <option value="Resignation">Resignation</option>
+            <option value="VRS">VRS</option>
+        </select>
+    </div>
+    <div class="col-md-2">
+        <label for="transferTo">TRANSFER TO:</label>
+        <input type="text" id="transferTo" name="transferTo" class="form-control" placeholder="Enter transfer to">
+    </div>
+    <div class="col-md-2">
+        <label for="relievingDate">RELIEVING DATE :</label>
+        <input type="date" id="relievingDate" name="relievingDate" class="form-control" value="">
+    </div>
+    <div class="col-md-2">
         <label>&nbsp;</label><br>
         <button type="submit" class="btn btn-primary">REQUEST</button>
     </div>
@@ -62,6 +81,11 @@
  
 @endsection
 
-@section('adminlte_js')  
-
+@section('adminlte_js')
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var today = new Date().toISOString().substr(0, 10);
+        document.getElementById('relievingDate').value = today;
+    });
+</script>
 @endsection

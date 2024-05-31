@@ -61,9 +61,9 @@
             <label for="remark">Remark</label>
             <select class="form-control" id="remark" name="remark" required>
               <option value="NA" selected>NA</option>
-              <option value="Option 1">Option 1</option>
-              <option value="Option 2">Option 2</option>
-              <option value="Option 3">Option 3</option>
+              <option value="Option 1">to be deposite at infocom Mehsana or next place of posting within 30 days from DOR</option>
+              <option value="Option 2">to be deposite at infocom Mehsana on or before DOR/DOS/DORSGN/DOVRS</option>
+              <option value="Option 3">to be deposite at infocom Mehsana within 2 month from date of demise</option>
             </select>
           </div>
         </div>
