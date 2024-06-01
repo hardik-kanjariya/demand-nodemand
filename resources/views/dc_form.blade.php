@@ -60,10 +60,10 @@
           <div class="form-group">
             <label for="remark">Remark</label>
             <select class="form-control" id="remark" name="remark" required>
-              <option value="NA" selected>NA</option>
-              <option value="Option 1">Option 1</option>
-              <option value="Option 2">Option 2</option>
-              <option value="Option 3">Option 3</option>
+              <option value="Datacard to be deposited at infocom Mehsana on or before DOR/DOS/DORSGN/DOVRS" selected>Datacard to be deposited at infocom Mehsana on or before DOR/DOS/DORSGN/DOVRS</option>
+              <option value="No Datacard issued">No Datacard issued</option>
+              <option value="Datacard to be deposited at infocom Mehsana">Datacard to be deposited at infocom Mehsana</option>
+              <option value="NA">NA</option>
             </select>
           </div>
         </div>

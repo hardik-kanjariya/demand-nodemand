@@ -65,8 +65,8 @@
             <label for="remark">Remark</label>
             <select class="form-control" id="remark" name="remark" required>
               <option value="NA" selected>NA</option>
-              <option value="Option 1">No Laptop is covered under IT-IMMS Contract</option>
-              <option value="Option 2">Laptop is covered under IT-IMMS Contract</option>
+              <option value="No Laptop is covered under IT-IMMS Contract">No Laptop is covered under IT-IMMS Contract</option>
+              <option value="Laptop is covered under IT-IMMS Contract">Laptop is covered under IT-IMMS Contract</option>
             </select>
           </div>
         </div>
