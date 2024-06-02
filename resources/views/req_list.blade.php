@@ -44,7 +44,7 @@
     <h4>DND Request List</h4>
     <table class="table table-striped">
         <thead>
-            <tr>
+            <tr style="text-align:center; font-size:18px;">
                 <th>CPF Number</th>
                 <th>IOM Ref. Number</th>
                 <th>IT Status</th>
@@ -57,36 +57,36 @@
         <tbody>
             @if(!empty($data) && $data->count())
                 @foreach($data as $key => $value)
-                    <tr>
+                    <tr style="text-align:center; font-size:18px;">
                         <td>{{ $value->cpf }}</td>
                         <td>{{ $value->iom_ref_no }}</td>
                         <td>
                             @if($value->it != 'Pending')
-                            <i class="fas fa-check"></i>
+                            <i class="fas fa-check badge bg-success"> Approved</i>
                             @endif
                             @if($value->it != 'Approved')
-                                <i class="far fa-clock"></i>
+                            <i class="fas fa-clock badge bg-warning"> Pending</i>
                             @endif
                         </td>
                         <td>@if($value->tele != 'Pending')
-                            <i class="fas fa-check"></i>
+                        <i class="fas fa-check badge bg-success"> Approved</i>
                             @endif
                             @if($value->tele != 'Approved')
-                                <i class="far fa-clock"></i>
+                            <i class="fas fa-clock badge bg-warning"> Pending</i>
                             @endif
                         </td>
                         <td>@if($value->mob != 'Pending')
-                            <i class="fas fa-check"></i>
+                        <i class="fas fa-check badge bg-success"> Approved</i>
                             @endif
                             @if($value->mob != 'Approved')
-                                <i class="far fa-clock"></i>
+                                <i class="far fa-clock badge bg-warning"> Pending</i>
                             @endif
                         </td>
                         <td>@if($value->dc != 'Pending')
-                            <i class="fas fa-check"></i>
+                            <i class="fas fa-check badge bg-success"> Approved</i>
                             @endif
                             @if($value->dc != 'Approved')
-                                <i class="fas fa-check badge bg-warning"> Pending</i>
+                                <i class="fas fa-clock badge bg-warning"> Pending</i>
                             @endif
                         </td>
                         <td><a href="/form/{{$value->cpf}}"><button class="btn btn-primary" type="submit">View</button></a></td>
@@ -94,7 +94,7 @@
                 @endforeach
             @else
                 <tr>
-                    <td colspan="6">There are no requests.</td>
+                    <td colspan="7">There are no requests.</td>
                 </tr>
             @endif
         </tbody>

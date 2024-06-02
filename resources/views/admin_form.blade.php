@@ -68,14 +68,7 @@
                     <div class="form-group row">
                         <label for="reason_for_noc" class="col-sm-2 col-form-label">Reason for NOC</label>
                         <div class="col-sm-4">
-                            <select class="form-control" id="reason_for_noc" name="reason_for_noc" readonly>
-                                <option value="Transfer" selected>Transfer</option>
-                                <option value="Superannuation">Superannuation</option>
-                                <option value="Demise">Demise</option>
-                                <option value="Dismissal">Dismissal</option>
-                                <option value="Resignation">Resignation</option>
-                                <option value="VRS">VRS</option>
-                            </select>
+                            <input class="form-control" id="reason_for_noc" name="reason_for_noc" readonly value="{{$data->reason}}">
                         </div>
                         <label for="transferred_to" class="col-sm-2 col-form-label">Transferred to</label>
                         <div class="col-sm-4">
@@ -131,7 +124,7 @@
                     <div class="form-group row">
                         <label for="mobile_no" class="col-sm-2 col-form-label">Mobile Number</label>
                         <div class="col-sm-4">
-                            <input type="text" class="form-control" id="mobile_no" name="mobile_no" readonly value="{{$data->sim_no}}">
+                            <input type="text" class="form-control" id="mobile_no" name="mobile_no" readonly value="{{$data->mob_no}}">
                         </div>
                         <label for="remarks_mobile_no" class="col-sm-2 col-form-label">Remarks</label>
                         <div class="col-sm-4">
@@ -151,7 +144,7 @@
                     <div class="form-group row">
                         <label for="datacard_service_provider" class="col-sm-2 col-form-label">Datacard Service Provider</label>
                         <div class="col-sm-4">
-                            <input type="text" class="form-control" id="datacard_service_provider" name="datacard_service_provider" readonly value="{{$data->dc_provide}}">
+                            <input type="text" class="form-control" id="datacard_service_provider" name="datacard_service_provider" readonly value="{{$data->dc_provider}}">
                         </div>
                     </div>
                     <div class="form-group row">
@@ -187,7 +180,7 @@
                             <button type="submit" name="submit" id="submit" class="btn-lg btn-primary">Download</button>
                         </div>
                         <div class="col d-flex flex-row-reverse">
-                            <a href="./dnd.php" class="btn-lg btn-primary" role="button">Back</a>
+                        <button type="button" class="btn btn-secondary btn-lg" onclick="window.history.back()">Back</button>
                         </div>
                     </div>
                 </div>
