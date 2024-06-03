@@ -9,22 +9,9 @@
 <body>
     
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <div class="jumbotron p-2 text-center text-white bg-primary">
-        <div class="row">
-            <div class="col-xl-2 col-lg-2 pt-2">
-                <img src="ongc_logo.png" alt="" style="width: 35%;">
-            </div>
-            <div class="col">
-                <h1>Welcome to NOC Portal</h1>
-                <p>ONGC Mehsana</p>
-            </div>
-            <div class="col-xl-2 col-lg-2 p-4">
-                <a href="./logout.php" class="btn btn-danger" role="button">Log Out</a>
-            </div>
-        </div>
-    </div>
+    
 
-    <div class="container mt-5">
+    <div class="container pt-4">
         <h2 class="text-center">NOC Details</h2>
 
         <!-- Success message area -->
@@ -32,7 +19,7 @@
             Form submitted successfully!
         </div>
 
-        <form action="dnd_print.php" action="" method="post"> @csrf
+        <form action="dnd_print.php" action="{{ route('download',$data->cpf) }}" method="post"> @csrf
             <div class="card rounded p-3 mainbox">
                 <div class="col">
                     <div class="form-group row">
@@ -177,7 +164,9 @@
                     </div>
                     <div class="form-group row d-flex justify-content-end m-2">
                         <div class="col d-flex">
-                            <button type="submit" name="submit" id="submit" class="btn-lg btn-primary">Download</button>
+                        @if($status->it != 'Pending' && $status->tele != 'Pending' && $status->dc != 'Pending' && $status->mob != 'Pending')
+                            <button type="submit" name="submit" id="submit" class="btn-lg btn-primary btn-block">Download</button>
+                        @endif
                         </div>
                         <div class="col d-flex flex-row-reverse">
                         <button type="button" class="btn btn-secondary btn-lg" onclick="window.history.back()">Back</button>

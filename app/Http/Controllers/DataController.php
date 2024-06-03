@@ -65,7 +65,8 @@ class DataController extends Controller
         if(Auth::user()){
             if(Auth::user()->hasrole('admin')){
                 $data= Details::where('cpf',$cpf)->first();
-                return view('admin_form',['data' => $data]);
+                $status=status::where('cpf',$cpf)->first();
+                return view('admin_form',['data' => $data],['status'=>$status]);
             }
 
             elseif(Auth::user()->hasrole('it')){
