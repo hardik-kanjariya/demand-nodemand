@@ -72,5 +72,10 @@ class AdminController extends Controller
         $st->save();
         return redirect()->route('showdata');
     }
+    public function download($cpf){
+        $data= Details::where('cpf',$cpf)->first();
+        $status=status::where('cpf',$cpf)->first();
+        return view('document',['data' => $data],['status'=>$status]);
+    }
     
 }

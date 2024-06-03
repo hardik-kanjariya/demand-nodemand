@@ -19,7 +19,7 @@
             Form submitted successfully!
         </div>
 
-        <form action="dnd_print.php" action="{{ route('download',$data->cpf) }}" method="post"> @csrf
+        <form action="{{ route('download',$data->cpf) }}" method="post"> @csrf
             <div class="card rounded p-3 mainbox">
                 <div class="col">
                     <div class="form-group row">

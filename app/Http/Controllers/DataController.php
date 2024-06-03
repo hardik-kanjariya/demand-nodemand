@@ -94,9 +94,6 @@ class DataController extends Controller
             return redirect()->route('login');
         }
     }
-    public function upload(){
-        return view('document');
-    }
     public function uploadfile(Request $request){
 
         $filename=$request->file('datacard_file');

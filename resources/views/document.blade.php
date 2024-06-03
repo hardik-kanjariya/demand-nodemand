@@ -112,7 +112,7 @@
                 <b>
                   <u>
                     <font size=3>
-                      <?php echo "name" ?>
+                      {{$data->name}}
                     </font>
                 </b>
                 </u>
@@ -155,7 +155,7 @@
                 <b>
                   <u>
                     <font size=3>
-                      <?php echo 'designation' ?>
+                        {{$data->designation}}            
                     </font>
                 </b>
                 </u>
@@ -198,7 +198,7 @@
                 <b>
                   <u>
                     <font size=3>
-                      <?php echo 'cpf' ?>
+                      {{$data->cpf}}
                     </font>
                 </b>
                 </u>
@@ -241,7 +241,7 @@
                 <b>
                   <u>
                     <font size=3>
-                      <?php echo 'section' ?>
+                      {{$data->section}}
                     </font>
                 </b>
                 </u>
@@ -286,7 +286,7 @@
                 <b>
                   <u>
                     <font size=3>
-                      <?php echo 'reason_for_noc' ?>
+                      {{$data->reason}}
                     </font>
                 </b>
                 </u>
@@ -330,7 +330,7 @@
                 <b>
                   <u>
                     <font size=3>
-                      <?php echo 'transfferd_to' ?>
+                      {{$data->transfer_to}}
                     </font>
                 </b>
                 </u>
@@ -377,7 +377,7 @@
                 <b>
                   <u>
                     <font size=3>
-                      <?php echo 'date_reliving' ?>
+                      {{$data->relleving_date}}
                     </font>
                 </b>
                 </u>
@@ -408,12 +408,12 @@
         <font size=4>With reference to IOM reference No. :
           <b>
             <u>
-              <?php echo 'iom_reference_no' ?>
+              {{$data->iom_ref_no}}
           </b>
           </u> IOM reference Date :
           <b>
             <u>
-              <?php echo 'iom_ref_date' ?>
+              {{$data->iom_ref_date}}
           </b>
           </u> for issue of NOC/NDC from Infocom Services, for</td>
     </tr>
@@ -460,10 +460,10 @@
       <td border='0' style='border:1px #000000 solid'>1</td>
       <td border='0' style='border:1px #000000 solid'>EPABX (O)</td>
       <td border='0' style='border:1px #000000 solid'>
-        <?php echo 'epabx_0' ?>
+        {{$data->epabx_o}}
       </td>
       <td border='0' style='border:1px #000000 solid'>
-        <?php echo 'remarks_e0' ?> </td>
+      <?php echo 'remarks_eo' ?></td>
       <td></td>
     </tr>
     <tr>
@@ -481,7 +481,7 @@
       <td border='0' style='border:1px #000000 solid'>3</td>
       <td border='0' style='border:1px #000000 solid'>Direct/Landline (O)</td>
       <td border='0' style='border:1px #000000 solid'>
-        <?php echo 'direct_landline_0' ?>
+      {{$data->landline_o}}
       </td>
       <td border='0' style='border:1px #000000 solid'>
         <?php echo 'remarks_dl0;'?>
@@ -492,7 +492,7 @@
       <td border='0' style='border:1px #000000 solid'>4</td>
       <td border='0' style='border:1px #000000 solid'>Direct/Landline (R)</td>
       <td border='0' style='border:1px #000000 solid'>
-        <?php echo 'direct_landline_r' ?>
+        {{$data->landline_r}}
       </td>
       <td border='0' style='border:1px #000000 solid'>
         <?php echo 'remarks_dlr' ?>
@@ -503,7 +503,7 @@
       <td border='0' style='border:1px #000000 solid'>5</td>
       <td border='0' style='border:1px #000000 solid'>Number</td>
       <td border='0' style='border:1px #000000 solid'>
-        <?php echo 'mobile_no' ?>
+        {{$data->mob_no}}
       </td>
       <td border='0' style='border:1px #000000 solid'>
         <?php echo 'remarks_sim' ?>
@@ -524,7 +524,7 @@
   </div>
   <p>&nbsp;</p>
 
-  <div id="Layer1" style="position:absolute; z-index:1; left: 10px; top: 1020px; width: 753px; height: 24px">
+  <div id="Layer1" style="position:absolute; z-index:1; left: 10px; top: 980px; width: 753px; height: 24px">
     <table width="755" ">
     <tr> 
       <td width="61% "> 
@@ -540,10 +540,10 @@
     </tr>
   </table>
 </div>
-<div id="Layer3 " style="position:absolute; width:753px; height:25px; z-index:3; top: 911px; left: 13px "> 
+<div id="Layer3 " style="position:absolute; width:753px; height:25px; z-index:3; top: 870px; left: 13px "> 
   <p><b><font size="3 "><font face="Arial, Helvetica, sans-serif ">Any other remarks:</font><font face="Arial, Helvetica,
       sans-serif " size="2 "> 
-    <tr><td colspan=7><b><font size=3><?php echo 'other_remarks' ?></font></b></td></tr></font></font></b></p>
+    <tr><td colspan=7><b><font size=3>{{ $data->remark }}</font></b></td></tr></font></font></b></p>
 </div>
 <div id="Layer11 " style="position:absolute; width:8px; height:25px; z-index:12; left: 431px; top: 770px
       "><b><font size="3 "><font face="Arial, Helvetica, sans-serif " size="2 "><font size="3 ">:</font></font></font></b></div>
@@ -569,29 +569,29 @@
 <div id="Layer5 " style="position:absolute; width:130px; height:25px; z-index:6; top: 837px; left: 13px
       "><b><font size="3 "><font face="Arial, Helvetica, sans-serif " size="2 "><font size="3 ">Make</font></font></font></b></div>
 <div id="Layer10 " style="position:absolute; width:140px; height:25px; z-index:11; left: 444px; top: 757px "> 
-  <p><b><font size="3 "><font face="Arial, Helvetica, sans-serif " ><tr><td colspan=7><b><font size=3><?php echo 'datacard_no' ?></font></b></td></tr></font></font></b></p>
+  <p><b><font size="3 "><font face="Arial, Helvetica, sans-serif " ><tr><td colspan=7><b><font size=3>{{ $data->dc_no }}</font></b></td></tr></font></font></b></p>
 </div>
 <div id="Layer3 " style="position:absolute; width:753px; height:25px; z-index:3; top: 740px; left: 13px
       "><b><font size="3 "><font face="Arial, Helvetica, sans-serif " size="2 "><font size="3 "><u>Datacard details</u> </font></font></font></b></div>
 <div id="Layer10 " style="position:absolute; width:140px; height:25px; z-index:11; left: 359px; top: 825px "> 
-  <p><b><font size="3 "><font face="Arial, Helvetica, sans-serif "><tr><td colspan=7><b><font size=3><?php echo 'model' ?></font></b></td></tr></font></font></b></p>
+  <p><b><font size="3 "><font face="Arial, Helvetica, sans-serif "><tr><td colspan=7><b><font size=3>{{$data->l_model}}</font></b></td></tr></font></font></b></p>
 </div>
 <p>&nbsp;</p>
 <div id="Layer12 " style="position:absolute; width:612px; height:25px; z-index:13; left: 156px; top: 778px "> 
   <p><b><font size="3 "><font face="Arial, Helvetica, sans-serif "><tr><td colspan=7><b><font size=3><?php echo 'remarks_datacard' ?></font></b></td></tr></font></font></b></p>
 </div>
-<div id="Layer2 " style="position:absolute; width:753px; height:37px; z-index:4; left: 13px; top: 946px "><font face="Arial,
+<div id="Layer2 " style="position:absolute; width:753px; height:37px; z-index:4; left: 13px; top: 910px "><font face="Arial,
       Helvetica, sans-serif " size="3 "><b>Note 
   : Any recovery in respect of book value of laptop issued to individual, may 
   kindly be taken up by Finance as per applicability</b></font></div>
-<div id="Layer4 " style="position:absolute; width:753px; height:37px; z-index:5; left: 13px; top: 1104px "> 
+<div id="Layer4 " style="position:absolute; width:753px; height:37px; z-index:5; left: 13px; top: 1020px "> 
   <p><font face="Arial, Helvetica, sans-serif " size="2 "><b><font size="3 ">Manager 
     (HR), Establishment Section<br>
     </font></b></font><font size="3 "><b><font face="Arial, Helvetica, sans-serif ">Copy 
     to : Manager (F&amp;A)</font></b></font></p>
   </div>
 <div id="Layer6 " style="position:absolute; width:120px; height:25px; z-index:7; left: 160px; top: 826px "> 
-  <p><b><font size="3 "><font face="Arial, Helvetica, sans-serif " ><tr><td colspan=7><b><font size=3><?php echo 'make' ?></font></b></td></tr></font></font></b></p>
+  <p><b><font size="3 "><font face="Arial, Helvetica, sans-serif " ><tr><td colspan=7><b><font size=3>{{$data->l_make}}</font></b></td></tr></font></font></b></p>
 
 </div>
 <div id="Layer5 " style="position:absolute; width:53px; height:25px; z-index:6; top: 832px; left: 519px
@@ -603,27 +603,12 @@
       "><b><font size="3 "><font face="Arial, Helvetica, sans-serif " size="2 "><font size="3 ">Service 
   Provider </font></font></font></b></div>
 <div id="Layer8 " style="position:absolute; width:120px; height:25px; z-index:9; left: 157px; top: 757px "> 
-  <p><b><font size="3 "><font face="Arial, Helvetica, sans-serif "><tr><td colspan=7><b><font size=3><?php echo 'datacard_sp' ?></font></b></td></tr></font></font></b></p>
+  <p><b><font size="3 "><font face="Arial, Helvetica, sans-serif "><tr><td colspan=7><b><font size=3>{{$data->dc_provider}}</font></b></td></tr></font></font></b></p>
 </div>
 <div id="Layer10 " style="position:absolute; width:181px; height:25px; z-index:11; left: 587px; top: 820px "> 
-  <p><b><font size="3 "><font face="Arial, Helvetica, sans-serif "><tr><td colspan=7><b><font size=3><?php echo 'sr_no_laptop' ?></font></b></td></tr></font></font></b></p>
+  <p><b><font size="3 "><font face="Arial, Helvetica, sans-serif "><tr><td colspan=7><b><font size=3>{{$data->l_srno}}</font></b></td></tr></font></font></b></p>
 </div>
 <div id="Layer11 " style="position:absolute; width:8px; height:25px; z-index:12; left: 575px; top: 832px
-      "><b><font size="3 "><font face="Arial, Helvetica, sans-serif " size="2 "><font size="3 ">:</font></font></font></b></div>
-<!-- <div id="Layer3 " style="position:absolute; width:160px; height:19px; z-index:3; top: 680px; left: 13px
-      "><b><font size="3 "><font face="Arial, Helvetica, sans-serif " size="2 ">DOR 
-  : Date of relieving </font></font></b></div>
-<div id="Layer3 " style="position:absolute; width:198px; height:19px; z-index:3; top: 680px; left: 193px
-      "><b><font size="3 "><font face="Arial, Helvetica, sans-serif " size="2 ">DOS 
-  : Date of superannuation</font></font></b></div>
-<div id="Layer3 " style="position:absolute; width:204px; height:19px; z-index:3; top: 680px; left: 417px
-      "><b><font size="3 "><font face="Arial, Helvetica, sans-serif " size="2 ">DORSGN 
-  : Date of resignation </font></font></b></div>
-<div id="Layer3 " style="position:absolute; width:142px; height:19px; z-index:3; top: 680px; left: 646px
-      "><b><font size="3 "><font face="Arial, Helvetica, sans-serif " size="2 ">DOVRS 
-  : Date of VRS</font></font></b></div> -->
+      "><b><font size="3 "><font face="Arial, Helvetica, sans-serif " size="2 "><font size="3 ">:</font></font></font></b>
+</div>
 
-<?php
-
-
-?>
