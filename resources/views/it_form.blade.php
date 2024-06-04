@@ -74,7 +74,9 @@
       <!-- Approve and Back buttons -->
       <div class="row">
         <div class="col-md-12 text-center">
+        @if($status->it != "Approved")
           <button type="submit" class="btn btn-primary btn-lg mr-2" name="action" value="approve">Approve</button>
+        @endif
           <button type="button" class="btn btn-secondary btn-lg" onclick="window.history.back()">Back</button>
         </div>
       </div>

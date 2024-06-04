@@ -36,11 +36,13 @@ class DataController extends Controller
             }
             elseif(Auth::user()->hasrole('dc') || Auth::user()->hasrole('mob') ){
                 $data = Details::all();
-               return view('file_list', ['data' => $data]);
+                $status=status::all();
+               return view('file_list', ['data' => $data],['status' => $status]);
        }
         else {
                 $data = Details::all();
-                return view('list', ['data' => $data]);
+                $status=status::all();
+                return view('list', ['data' => $data],['status' => $status]);
             }
         }
         if(Auth::user()){
@@ -50,12 +52,15 @@ class DataController extends Controller
         } 
         elseif(Auth::user()->hasrole('dc') || Auth::user()->hasrole('mob') ){
             $data = Details::all();
-           return view('file_list', ['data' => $data]);
+            $status=status::all();
+
+           return view('file_list', ['data' => $data],['status' => $status]);
         }
 
         else {
             $data = Details::all();
-            return view('list', ['data' => $data]);
+            $status=status::all();
+            return view('list', ['data' => $data],['status' => $status]);
         }
     }
 
@@ -72,22 +77,26 @@ class DataController extends Controller
 
             elseif(Auth::user()->hasrole('it')){
                 $data=Details::where('cpf',$cpf)->first();
-                return view('it_form',['data'=>$data]);
+                $status=status::where('cpf',$cpf)->first();
+                return view('it_form',['data'=>$data],['status'=>$status]);
             }
 
             elseif(Auth::user()->hasrole('tele')){
                 $data=Details::where('cpf',$cpf)->first();
-                return view('tele_form',['data'=>$data]);      
+                $status=status::where('cpf',$cpf)->first();
+                return view('tele_form',['data'=>$data],['status'=>$status]);      
             }
 
             elseif(Auth::user()->hasrole('dc')){
-                $data=Details::where('cpf',$cpf)->first();
-                return view('dc_form',['data'=>$data]);      
+                $data=Details::where('cpf',$cpf)->first();  
+                $status=status::where('cpf',$cpf)->first();
+                return view('dc_form',['data'=>$data],['status'=>$status]);      
             }
 
             elseif(Auth::user()->hasrole('mob')){
                 $data=Details::where('cpf',$cpf)->first();
-                return view('mob_form',['data'=>$data]);
+                $status=status::where('cpf',$cpf)->first();
+                return view('mob_form',['data'=>$data],['status'=>$status]);
             }
         
         }

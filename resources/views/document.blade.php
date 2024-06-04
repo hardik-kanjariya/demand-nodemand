@@ -35,7 +35,7 @@
     <table width="100%" border="0">
       <tr>
         <td>
-          <img src="ongc_logo.png" width="65" height="65">
+          <img src="{{asset('ongc_logo.png')}}" width="65" height="65">
         </td>
         <td>
           <div align="center">
