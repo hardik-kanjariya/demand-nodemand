@@ -463,17 +463,17 @@
         {{$data->epabx_o}}
       </td>
       <td border='0' style='border:1px #000000 solid'>
-      <?php echo 'remarks_eo' ?></td>
+     {{$status->tele_remark}}</td>
       <td></td>
     </tr>
     <tr>
       <td border='0' style='border:1px #000000 solid'>2</td>
       <td border='0' style='border:1px #000000 solid'>EPABX (R)</td>
       <td border='0' style='border:1px #000000 solid'>
-        <?php echo 'epabx_r' ?>
+        {{$data->epabx_r}}
       </td>
       <td border='0' style='border:1px #000000 solid'>
-        <?php echo 'remarks_er' ?>
+        <?php echo '--' ?>
       </td>
       <td></td>
     </tr>
@@ -484,7 +484,7 @@
       {{$data->landline_o}}
       </td>
       <td border='0' style='border:1px #000000 solid'>
-        <?php echo 'remarks_dl0;'?>
+        <?php echo '--'?>
       </td>
       <td></td>
     </tr>
@@ -495,7 +495,7 @@
         {{$data->landline_r}}
       </td>
       <td border='0' style='border:1px #000000 solid'>
-        <?php echo 'remarks_dlr' ?>
+        <?php echo '--' ?>
       </td>
       <td></td>
     </tr>
@@ -506,7 +506,7 @@
         {{$data->mob_no}}
       </td>
       <td border='0' style='border:1px #000000 solid'>
-        <?php echo 'remarks_sim' ?>
+        {{$status->mob_remark}}
       </td>
       <td></td>
     </tr>
@@ -555,7 +555,7 @@
 <div id="Layer11 " style="position:absolute; width:8px; height:25px; z-index:12; left: 146px; top: 861px
       "><b><font size="3 "><font face="Arial, Helvetica, sans-serif " size="2 "><font size="3 ">:</font></font></font></b></div>
 <div id="Layer12 " style="position:absolute; width:612px; height:25px; z-index:13; left: 156px; top: 849px "> 
-  <p><b><font size="3 "><font face="Arial, Helvetica, sans-serif "><tr><td colspan=7><b><font size=3><?php echo 'remarks_laptop;'?></font></b></td></tr></font></font></b></p>
+  <p><b><font size="3 "><font face="Arial, Helvetica, sans-serif "><tr><td colspan=7><b><font size=3>{{ $status->it_remark }}</font></b></td></tr></font></font></b></p>
 </div>
 <div id="Layer5 " style="position:absolute; width:53px; height:25px; z-index:6; top: 837px; left: 290px
       "><b><font size="3 "><font face="Arial, Helvetica, sans-serif " size="2 "><font size="3 ">Model 
@@ -578,7 +578,7 @@
 </div>
 <p>&nbsp;</p>
 <div id="Layer12 " style="position:absolute; width:612px; height:25px; z-index:13; left: 156px; top: 778px "> 
-  <p><b><font size="3 "><font face="Arial, Helvetica, sans-serif "><tr><td colspan=7><b><font size=3><?php echo 'remarks_datacard' ?></font></b></td></tr></font></font></b></p>
+  <p><b><font size="3 "><font face="Arial, Helvetica, sans-serif "><tr><td colspan=7><b><font size=2>{{ $status->dc_remark }}</font></b></td></tr></font></font></b></p>
 </div>
 <div id="Layer2 " style="position:absolute; width:753px; height:37px; z-index:4; left: 13px; top: 910px "><font face="Arial,
       Helvetica, sans-serif " size="3 "><b>Note 

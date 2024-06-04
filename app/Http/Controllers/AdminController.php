@@ -7,8 +7,11 @@ use App\Models\Details;
 use App\Models\status; 
 use App\Models\Mobile;
 use App\Models\Datacard;
-use Spatie\LaravelPdf\Facades\Pdf; 
+use Barryvdh\DomPDF\PDF;
+use Dompdf\Dompdf;
+use Dompdf\Options;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\View;
 
 class AdminController extends Controller
 {
@@ -81,11 +84,44 @@ class AdminController extends Controller
         $st->save();
         return redirect()->route('showdata');
     }
-    public function download($cpf){
-        $data= Details::where('cpf',$cpf)->first();
-        $status=status::where('cpf',$cpf)->first();
-        $pdf=Pdf::view('document')->with('data',$data)->with('status',$satatus)->format('a4')->name('NOC.pdf');
-        return $pdf->download('NOC.pdf');
+    // public function download($cpf)
+    // {
+    //     $data = Details::where('cpf', $cpf)->first();
+    //     $status = Status::where('cpf', $cpf)->first(); 
+    
+
+    //     if (!$data || !$status) {
+ 
+    //         return response()->json(['error' => 'Data not found'], 404);
+    //     }
+    
+    //     $html = View::make('document', compact('data', 'status'))->render();
+    
+
+    //     $options = new Options();
+    //     $options->set('isHtml5ParserEnabled', true);
+    //     $options->set('isRemoteEnabled', true);
+    
+
+    //     $dompdf = new Dompdf($options);
+    
+
+    //     $dompdf->loadHtml($html);
+    
+
+    //     $dompdf->setPaper('A4', 'portrait');
+    
+
+    //     $dompdf->render();
+
+    //     return $dompdf->stream("test_pdf.pdf");
+    // }
+    public function download($cpf)
+    {
+        $data = Details::where('cpf', $cpf)->first();
+        $status = status::where('cpf', $cpf)->first();
+        
+        return view('document', compact('data', 'status'));
     }
     
 }

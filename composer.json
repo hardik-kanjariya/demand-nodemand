@@ -6,13 +6,15 @@
     "license": "MIT",
     "require": {
         "php": "^8.0.2",
+        "barryvdh/laravel-dompdf": "^2.2",
         "guzzlehttp/guzzle": "^7.2",
         "jeroennoten/laravel-adminlte": "^3.8",
-        "kreait/laravel-firebase": "^4.1",
+        "kreait/laravel-firebase": "^4.2",
         "laravel/framework": "^9.2",
         "laravel/sanctum": "^2.14.1",
         "laravel/tinker": "^2.7",
         "laravel/ui": "^3.4",
+        "lcobucci/jwt": "^4.3",
         "livewire/livewire": "^2.10",
         "rappasoft/laravel-livewire-tables": "^2.7",
         "santigarcor/laratrust": "^7.1"
@@ -60,7 +62,10 @@
     "config": {
         "optimize-autoloader": true,
         "preferred-install": "dist",
-        "sort-packages": true
+        "sort-packages": true,
+        "platform": {
+            "ext-sodium": false
+        }
     },
     "minimum-stability": "dev",
     "prefer-stable": true
