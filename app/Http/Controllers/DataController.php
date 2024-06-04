@@ -132,7 +132,7 @@ class DataController extends Controller
         $i=1;
         Mobile::truncate();
         foreach ($dataArr as $value) {
-             $mob = Mobile::Create([
+             $dc = Mobile::Create([
                 'id' => $i,
                 'cpf' => $value[2],
                 'service_pro' => $value[0],
