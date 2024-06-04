@@ -155,7 +155,7 @@
                     <div class="form-group row d-flex justify-content-end m-2">
                         <div class="col d-flex">
                         @if($status->it != 'Pending' && $status->tele != 'Pending' && $status->dc != 'Pending' && $status->mob != 'Pending')
-                            <button type="submit" name="submit" id="submit" class="btn-lg btn-primary btn-block">Download</button>
+                            <button type="submit" name="submit" id="submit" class="btn-lg btn-primary">Download</button>
                         @endif
                         </div>
                         <div class="col d-flex flex-row-reverse">

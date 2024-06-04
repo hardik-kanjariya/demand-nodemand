@@ -7,7 +7,7 @@ use App\Models\Details;
 use App\Models\status; 
 use App\Models\Mobile;
 use App\Models\Datacard;
-use Barryvdh\DomPDF\PDF; 
+use Spatie\LaravelPdf\Facades\Pdf; 
 use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
@@ -84,7 +84,7 @@ class AdminController extends Controller
     public function download($cpf){
         $data= Details::where('cpf',$cpf)->first();
         $status=status::where('cpf',$cpf)->first();
-        $pdf=PDF::loadview('document')->with('data',$data)->with('status',$satatus);
+        $pdf=Pdf::view('document')->with('data',$data)->with('status',$satatus)->format('a4')->name('NOC.pdf');
         return $pdf->download('NOC.pdf');
     }
     
