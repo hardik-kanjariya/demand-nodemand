@@ -18,5 +18,5 @@ class status extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['cpf','iom_ref_no','it','tele','dc','mob'];
+    protected $fillable = ['cpf','iom_ref_no','it','tele','dc','mob','it_remark','tele_remark','dc_remark','mob_remark'];
 }

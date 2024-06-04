@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Details;
 use App\Models\status; 
 use App\Models\Datacard; 
+use App\Models\Mobile; 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Validator;
@@ -113,6 +114,7 @@ class DataController extends Controller
         }
 
         fclose($file);
+        if(Auth::user()->hasrole('dc')){
 
         $i=1;
         Datacard::truncate();
@@ -125,8 +127,23 @@ class DataController extends Controller
             ]);
             $i++;
         }
+    }
+    elseif(Auth::user()->hasrole('mob')){
+        $i=1;
+        Mobile::truncate();
+        foreach ($dataArr as $value) {
+             $mob = Mobile::Create([
+                'id' => $i,
+                'cpf' => $value[2],
+                'service_pro' => $value[0],
+                'mobile_no' => $value[3],
+            ]);
+            $i++;
+        }
+    }
         return redirect('showdata');
     }
+
 }
 
 

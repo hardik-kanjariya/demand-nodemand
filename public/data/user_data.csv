@@ -1,6 +1,6 @@
 username,psw,role
-user1,123,it
-user2,123,tele
-user3,123,dc
-user4,123,mob
-user5,123,admin
+it,123,it
+tele,123,tele
+dc,123,dc
+mob,123,mob
+admin,123,admin

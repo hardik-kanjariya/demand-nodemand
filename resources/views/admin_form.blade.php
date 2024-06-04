@@ -75,7 +75,7 @@
                         </div>
                         <label for="remarks_epabx_office" class="col-sm-2 col-form-label">Remarks</label>
                         <div class="col-sm-4">
-                            <input type="text" class="form-control" id="remarks_epabx_office" name="remarks_epabx_office" readonly value="{{$data->remark}}">
+                            <input type="text" class="form-control" id="remarks_epabx_office" name="remarks_epabx_office" readonly value="{{$status->tele_remark}}">
                         </div>
                     </div>
                     <div class="form-group row">
@@ -83,30 +83,20 @@
                         <div class="col-sm-4">
                             <input type="text" class="form-control" id="epabx_res" name="epabx_res" readonly value="{{$data->epabx_r}}">
                         </div>
-                        <label for="remarks_epabx_res" class="col-sm-2 col-form-label">Remarks</label>
-                        <div class="col-sm-4">
-                            <input type="text" class="form-control" id="remarks_epabx_res" name="remarks_epabx_res" readonly value="{{$data->remark}}">
-                        </div>
                     </div>
                     <div class="form-group row">
                         <label for="direct_landline_0" class="col-sm-2 col-form-label">Direct / Landline Office</label>
                         <div class="col-sm-4">
                             <input type="text" class="form-control" id="direct_landline_0" name="direct_landline_0" readonly value="{{$data->landline_o}}">
                         </div>
-                        <label for="remarks_direct_landline_0" class="col-sm-2 col-form-label">Remarks</label>
-                        <div class="col-sm-4">
-                            <input type="text" class="form-control" id="remarks_direct_landline_0" name="remarks_direct_landline_0" readonly value="{{$data->remark}}">
-                        </div>
+                      
                     </div>
                     <div class="form-group row">
                         <label for="direct_landline_r" class="col-sm-2 col-form-label">Direct / Landline (R)</label>
                         <div class="col-sm-4">
                             <input type="text" class="form-control" id="direct_landline_r" name="direct_landline_r" readonly value="{{$data->landline_r}}">
                         </div>
-                        <label for="remarks_direct_landline_r" class="col-sm-2 col-form-label">Remarks</label>
-                        <div class="col-sm-4">
-                            <input type="text" class="form-control" id="remarks_direct_landline_r" name="remarks_direct_landline_r" readonly value="{{$data->remark}}">
-                        </div>
+                        
                     </div>
                     <div class="form-group row">
                         <label for="mobile_no" class="col-sm-2 col-form-label">Mobile Number</label>
@@ -115,7 +105,7 @@
                         </div>
                         <label for="remarks_mobile_no" class="col-sm-2 col-form-label">Remarks</label>
                         <div class="col-sm-4">
-                            <input type="text" class="form-control" id="remarks_mobile_no" name="remarks_mobile_no" readonly value="{{$data->remark}}">
+                            <input type="text" class="form-control" id="remarks_mobile_no" name="remarks_mobile_no" readonly value="{{$status->mob_remark}}">
                         </div>
                     </div>
                     <div class="form-group row">
@@ -125,7 +115,7 @@
                         </div>
                         <label for="remarks_datacard_no" class="col-sm-2 col-form-label">Remarks</label>
                         <div class="col-sm-4">
-                            <input type="text" class="form-control" id="remarks_datacard_no" name="remarks_datacard_no" readonly value="{{$data->remark}}">
+                            <input type="text" class="form-control" id="remarks_datacard_no" name="remarks_datacard_no" readonly value="{{$status->dc_remark}}">
                         </div>
                     </div>
                     <div class="form-group row">
@@ -141,7 +131,7 @@
                         </div>
                         <label for="remarks_laptop_make" class="col-sm-2 col-form-label">Remarks</label>
                         <div class="col-sm-4">
-                            <input type="text" class="form-control" id="remarks_laptop_make" name="remarks_laptop_make" readonly value="{{$data->remark}}">
+                            <input type="text" class="form-control" id="remarks_laptop_make" name="remarks_laptop_make" readonly value="{{$status->it_remark}}">
                         </div>
                     </div>
                     <div class="form-group row">

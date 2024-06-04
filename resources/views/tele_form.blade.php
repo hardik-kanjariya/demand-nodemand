@@ -69,9 +69,7 @@
             <label for="remark">Remark</label>
             <select class="form-control" id="remark" name="remark" required>
             <option value="NA" selected>NA</option>
-            <div class="col-sm-4">
-                      <input type="text" class="form-control" id="remarks_mobile_no" name="remarks_mobile_no" required>
-                        </div>
+
               
               <!-- <option value="Option 1">Option 1</option>
               <option value="Option 2">Option 2</option>

@@ -21,6 +21,10 @@ return new class extends Migration
             $table->string('tele')->default('Pending');
             $table->string('dc')->default('Pending');
             $table->string('mob')->default('Pending');
+            $table->string('it_remark')->default('NA');
+            $table->string('tele_remark')->default('NA');
+            $table->string('dc_remark')->default('NA');
+            $table->string('mob_remark')->default('NA');
             $table->timestamps();
         });
     }

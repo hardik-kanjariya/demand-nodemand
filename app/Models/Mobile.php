@@ -9,6 +9,6 @@ class Mobile extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['cpf'.'moblie_no','service_p'];
+    protected $fillable = ['cpf'.'moblie_no','service_pro'];
 
 }

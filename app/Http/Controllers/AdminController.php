@@ -11,9 +11,10 @@ use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
-    public function approve($cpf){
+    public function approve($cpf,Request $request){
         $user = Auth::user();
-        $status = status::where('cpf', $cpf)->first(); // Assuming Status model is capitalized
+        $status = status::where('cpf', $cpf)->first(); 
+        $remark=$request->input('remark');
         // dd($status);
         if(!$status) {
             // Handle case where status is not found for the given CPF
@@ -22,12 +23,19 @@ class AdminController extends Controller
     
         if($user->hasRole('it')){
             $status->it = "Approved";
+            $status->it_remark=$remark;
         } elseif($user->hasRole('tele')){
             $status->tele = "Approved";
+            $status->tele_remark=$remark;
+
         } elseif($user->hasRole('dc')){
             $status->dc = "Approved";
+            $status->dc_remark=$remark;
+
         } elseif($user->hasRole('mob')){
             $status->mob = "Approved";
+            $status->mob_remark=$remark;
+
         } else {
             // Handle case where user role is not recognized
             return redirect()->back()->with('error', 'User role not recognized.');
