@@ -31,19 +31,11 @@ trait ColumnHelpers
         $this->columns = $columns;
     }
 
-    /**
-     * @return Collection
-     */
     public function getColumns(): Collection
     {
         return $this->columns;
     }
 
-    /**
-     * @param  string  $qualifiedColumn
-     *
-     * @return Column|null
-     */
     public function getColumn(string $qualifiedColumn): ?Column
     {
         return $this->getColumns()
@@ -51,11 +43,6 @@ trait ColumnHelpers
             ->first();
     }
 
-    /**
-     * @param  string  $qualifiedColumn
-     *
-     * @return Column|null
-     */
     public function getColumnBySelectName(string $qualifiedColumn): ?Column
     {
         return $this->getColumns()
@@ -63,8 +50,15 @@ trait ColumnHelpers
             ->first();
     }
 
+    public function getColumnBySlug(string $columnSlug): ?Column
+    {
+        return $this->getColumns()
+            ->filter(fn (Column $column) => $column->isColumnBySlug($columnSlug))
+            ->first();
+    }
+
     /**
-     * @return array
+     * @return array<mixed>
      */
     public function getColumnRelations(): array
     {
@@ -76,7 +70,7 @@ trait ColumnHelpers
     }
 
     /**
-     * @return array
+     * @return array<mixed>
      */
     public function getColumnRelationStrings(): array
     {
@@ -87,9 +81,6 @@ trait ColumnHelpers
             ->toArray();
     }
 
-    /**
-     * @return Collection
-     */
     public function getSelectableColumns(): Collection
     {
         return $this->getColumns()
@@ -97,9 +88,6 @@ trait ColumnHelpers
             ->values();
     }
 
-    /**
-     * @return Collection
-     */
     public function getSearchableColumns(): Collection
     {
         return $this->getColumns()
@@ -107,33 +95,21 @@ trait ColumnHelpers
             ->values();
     }
 
-    /**
-     * @return int
-     */
     public function getColumnCount(): int
     {
         return $this->getColumns()->count();
     }
 
-    /**
-     * @return bool
-     */
     public function hasCollapsedColumns(): bool
     {
-        return $this->shouldCollapseOnMobile() + $this->shouldCollapseOnTablet() > 0;
+        return ($this->shouldCollapseOnMobile() + $this->shouldCollapseOnTablet()) > 0;
     }
 
-    /**
-     * @return bool
-     */
     public function shouldCollapseOnMobile(): bool
     {
-        return $this->getCollapsedMobileColumnsCount();
+        return $this->getCollapsedMobileColumnsCount() > 0;
     }
 
-    /**
-     * @return Collection
-     */
     public function getCollapsedMobileColumns(): Collection
     {
         return $this->getColumns()
@@ -141,17 +117,11 @@ trait ColumnHelpers
             ->values();
     }
 
-    /**
-     * @return int
-     */
     public function getCollapsedMobileColumnsCount(): int
     {
         return $this->getCollapsedMobileColumns()->count();
     }
 
-    /**
-     * @return Collection
-     */
     public function getVisibleMobileColumns(): Collection
     {
         return $this->getColumns()
@@ -159,25 +129,16 @@ trait ColumnHelpers
             ->values();
     }
 
-    /**
-     * @return int
-     */
     public function getVisibleMobileColumnsCount(): int
     {
         return $this->getVisibleMobileColumns()->count();
     }
 
-    /**
-     * @return bool
-     */
     public function shouldCollapseOnTablet(): bool
     {
-        return $this->getCollapsedTabletColumnsCount();
+        return $this->getCollapsedTabletColumnsCount() > 0;
     }
 
-    /**
-     * @return Collection
-     */
     public function getCollapsedTabletColumns(): Collection
     {
         return $this->getColumns()
@@ -185,17 +146,11 @@ trait ColumnHelpers
             ->values();
     }
 
-    /**
-     * @return int
-     */
     public function getCollapsedTabletColumnsCount(): int
     {
         return $this->getCollapsedTabletColumns()->count();
     }
 
-    /**
-     * @return Collection
-     */
     public function getVisibleTabletColumns(): Collection
     {
         return $this->getColumns()
@@ -203,15 +158,11 @@ trait ColumnHelpers
             ->values();
     }
 
-    /**
-     * @return int
-     */
     public function getVisibleTabletColumnsCount(): int
     {
         return $this->getVisibleTabletColumns()->count();
     }
 
-    // TODO
     public function getColspanCount(): int
     {
         $all = $this->getColumnCount();
