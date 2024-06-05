@@ -41,6 +41,8 @@
 </form>
 
 <div class="row p-3">
+<div class="card p-4 shadow-lg mb-4 mt-5" style="width:2200px;">
+
     <h4>DND Request List</h4>
     <table class="table table-striped">
         <thead>
@@ -89,7 +91,7 @@
                                 <i class="fas fa-clock badge bg-warning"> Pending</i>
                             @endif
                         </td>
-                        <td><a href="/form/{{$value->cpf}}"><button class="btn btn-primary" type="submit">View</button></a></td>
+                        <td><a href="/form/{{$value->cpf}}"><button class="btn btn-primary" type="submit"><i class="fa fa-eye">View</button></a></td>
                     </tr>
                 @endforeach
             @else
@@ -99,6 +101,7 @@
             @endif
         </tbody>
     </table>
+    </div>
 </div>
 @endsection
 

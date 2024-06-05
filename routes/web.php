@@ -38,23 +38,23 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 //------------admin related routes---------------------//
 
-Route::get('/do_admin_login', [AuthController::class, 'do_admin_login'])->name('do_admin_login');
+// Route::get('/do_admin_login', [AuthController::class, 'do_admin_login'])->name('do_admin_login');
 
-Route::group(['middleware' => ['role:admin']], function () {
+// Route::group(['middleware' => ['role:admin']], function () {
 
-    //--------------------------------- User Manage---------------------------------
-    // Route::get('/user-manage', [ManageUserController::class, 'index'])->name('user-manage');
+//     //--------------------------------- User Manage---------------------------------
+//     // Route::get('/user-manage', [ManageUserController::class, 'index'])->name('user-manage');
     
 
-});
+// });
 
-Route::group(['middleware' => ['role:user']], function () {
+// Route::group(['middleware' => ['role:user']], function () {
 
-    //--------------------------------- User Dashboard Manage---------------------------------
-    // Route::get('user-dashboard', [UserDashboardController::class, 'index'])->name('user-dashboard');
+//     //--------------------------------- User Dashboard Manage---------------------------------
+//     // Route::get('user-dashboard', [UserDashboardController::class, 'index'])->name('user-dashboard');
    
 
-});
+// });
 
-// Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
+// // Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 

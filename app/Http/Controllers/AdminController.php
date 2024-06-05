@@ -116,9 +116,11 @@ class AdminController extends Controller
 
     //     return $dompdf->stream("test_pdf.pdf");
     // }
-    public function download($cpf)
+    public function download($cpf,Request $request)
     {
         $data = Details::where('cpf', $cpf)->first();
+        $data->remark=$request->input('anyOtherRemarks');
+        $data->save();
         $status = status::where('cpf', $cpf)->first();
         
         return view('document', compact('data', 'status'));
